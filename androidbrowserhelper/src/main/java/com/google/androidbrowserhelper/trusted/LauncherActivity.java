@@ -17,7 +17,6 @@ package com.google.androidbrowserhelper.trusted;
 import android.content.Intent;
 import android.graphics.Matrix;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -33,8 +32,6 @@ import androidx.browser.trusted.TrustedWebActivityService;
 import androidx.core.content.ContextCompat;
 
 import com.google.androidbrowserhelper.trusted.splashscreens.PwaWrapperSplashScreenStrategy;
-
-import static android.view.WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT;
 
 /**
  * A convenience class to make using Trusted Web Activities easier. You can extend this class for
@@ -147,7 +144,7 @@ public class LauncherActivity extends AppCompatActivity {
                 .build();
 
         TrustedWebActivityIntentBuilder twaBuilder =
-                new TWAIntentBuilderFactory(this).createNew(getLaunchingUrl())
+                new TwaIntentBuilderFactory(this).createNew(getLaunchingUrl())
                         // new TrustedWebActivityIntentBuilder(getLaunchingUrl())
                         .setToolbarColor(getColorCompat(mMetadata.statusBarColorId))
                         .setNavigationBarColor(getColorCompat(mMetadata.navigationBarColorId))
