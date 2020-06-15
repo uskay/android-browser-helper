@@ -147,7 +147,8 @@ public class LauncherActivity extends AppCompatActivity {
                 .build();
 
         TrustedWebActivityIntentBuilder twaBuilder =
-                new TrustedWebActivityIntentBuilder(getLaunchingUrl())
+                new TWAIntentBuilderFactory(this).createNew(getLaunchingUrl())
+                        // new TrustedWebActivityIntentBuilder(getLaunchingUrl())
                         .setToolbarColor(getColorCompat(mMetadata.statusBarColorId))
                         .setNavigationBarColor(getColorCompat(mMetadata.navigationBarColorId))
                         .setColorScheme(CustomTabsIntent.COLOR_SCHEME_SYSTEM)
